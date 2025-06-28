@@ -1,0 +1,107 @@
+
+* {
+    font:   "Segoe UI 12";
+
+    bg1:     #121212;
+    bg0:     #1E1E1E;
+    fg0:     #DFDFDF;
+
+    accent-color:     #8AB4F8;
+    urgent-color:     #F44336;
+
+    background-color:   transparent;
+    text-color:         @fg0;
+
+    margin:     0;
+    padding:    0;
+    spacing:    0;
+
+    show-icons: true;
+}
+
+window {
+    location:   center;
+    width:      480;
+
+    background-color:   @bg0;
+
+    border: 2px;
+    border-color: @accent-color;
+}
+
+inputbar {
+    spacing:    8px;
+    padding:    8px;
+
+    background-color:   @bg1;
+}
+
+prompt, entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+
+prompt {
+    text-color: @accent-color;
+}
+
+textbox {
+    padding:            8px;
+    background-color:   @bg1;
+
+    border: 2px;
+    border-color: @accent-color;
+}
+
+listview {
+    padding:    4px 0;
+    lines:      8;
+    columns:    1;
+
+    fixed-height:   false;
+    element-icon:   true;
+}
+
+element {
+    padding:    8px;
+    spacing:    8px;
+}
+
+element normal normal {
+    text-color: @fg0;
+}
+
+element normal urgent {
+    text-color: @urgent-color;
+}
+
+element normal active {
+    text-color: @accent-color;
+}
+
+element alternate active {
+    text-color: @accent-color;
+}
+
+element selected {
+    text-color: @bg0;
+}
+
+element selected normal, element selected active {
+    background-color:   @accent-color;
+}
+
+element selected urgent {
+    background-color:   @urgent-color;
+}
+
+element-icon {
+    size: 1.2em;
+    width: 1.6em;
+    margin-right: 8px;
+    image: true;
+}
+
+element-text {
+    text-color: inherit;
+}
+
