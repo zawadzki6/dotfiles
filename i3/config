@@ -50,10 +50,10 @@ exec --no-startup-id xsetroot -cursor_name left_ptr
 
 
 # Volume up
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send "Volume: ↑"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send "Volume: Increased"
 
 # Volume down
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send "Volume: ↓"
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send "Volume: Decreased"
 
 # Mute toggle
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send "Volume: Mute toggled"
@@ -262,8 +262,6 @@ exec_always --no-startup-id ~/rice/polybar.sh
 
 bindsym $mod+period exec rofimoji
 
-exec --no-startup-id bash ~/rice/listener.sh
-
 exec --no-startup-id bash ~/Documents/scripts/replace.sh
 
 exec xrandr --output DisplayPort-1 --mode 2560x1440
@@ -274,8 +272,8 @@ exec xscreensaver --no-splash
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-exec_always --no-startup-id ~/rice/fixes.sh
-
 for_window [class=".*"] border pixel 1
 
-exec --no-startup-id ~/rice/autotile.py
+exec --no-startup-id python ~/rice/autotile.py
+
+exec_always ~/rice/fixes.sh
