@@ -29,6 +29,8 @@ bindsym Control+Mod1+Delete exec ~/rice/power.sh
 
 bindsym $mod+d exec "rofi -show drun -show-icons -theme ~/rice/rofi.rasi"
 
+exec --no-startup-id export XCURSOR_THEME=Bibata
+exec --no-startup-id export XCURSOR_SIZE=20
 # exec --no-startup-id env QT_STYLE_OVERRIDE=qt5ct GTK_THEME=Materia-Dark
 
 exec --no-startup-id diodon
@@ -42,11 +44,11 @@ bindsym $mod+Shift+c exec "pick-colour-picker --pick"
 for_window [class="Pick"] floating enable
 
 exec --no-startup-id picom
-exec feh --no-startup-id --bg-fill /home/zawadzki/Pictures/3840x2160.png
+exec_always feh --no-startup-id --bg-fill /home/zawadzki/fsf.jpg
 
 exec --no-startup-id dunst
 
-exec --no-startup-id xsetroot -cursor_name left_ptr
+exec --no-startup-id xsetroot -Bibata left_ptr
 
 
 # Volume up
@@ -277,3 +279,5 @@ for_window [class=".*"] border pixel 1
 exec --no-startup-id python ~/rice/autotile.py
 
 exec_always ~/rice/fixes.sh
+
+bindsym $mod+Shift+x exec xkill

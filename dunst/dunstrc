@@ -1,0 +1,59 @@
+[global]
+    font = Segoe UI 10
+    markup = full
+    format = "<b>%s</b>\n%b"
+    sort = yes
+    alignment = left
+    vertical_alignment = center
+    word_wrap = yes
+    ignore_newline = no
+    show_age_threshold = 60
+    frame_width = 2
+    frame_color = "#8ab4f8"
+    corner_radius = 0
+    transparency = 10
+    separator_color = auto
+    padding = 8
+    horizontal_padding = 10
+    separator_height = 2
+    idle_threshold = 120
+    monitor = 0
+    follow = mouse
+    sticky_history = yes
+    history_length = 20
+    show_indicators = yes
+
+    ### ICON SETTINGS
+    icon_position = left
+    max_icon_size = 48
+    enable_recursive_icon_lookup = true
+    icon_theme = Papirus-Dark
+
+    dmenu = dmenu -p dunst:
+    browser = xdg-open
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    verbosity = mesg
+    mouse_left_click = close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#121212"
+    foreground = "#dfdfdf"
+    frame_color = "#1e1e1e"
+    timeout = 3
+
+[urgency_normal]
+    background = "#121212"
+    foreground = "#dfdfdf"
+    frame_color = "#8ab4f8"
+    timeout = 5
+
+[urgency_critical]
+    background = "#121212"
+    foreground = "#f44336"
+    frame_color = "#f44336"
+    timeout = 0
+
