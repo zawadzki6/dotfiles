@@ -47,6 +47,30 @@ require("lazy").setup({
   "bluz71/vim-moonfly-colors",
   "dgox16/oldworld.nvim",
   "zootedb0t/citruszest.nvim",
+  "m4xshen/hardtime.nvim",
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      bigfile = { enabled = true },
+      dashboard = { enabled = true },
+      explorer = { enabled = true },
+      indent = { enabled = true },
+      input = { enabled = true },
+      picker = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+  }
+  },
   {
     "kyazdani42/nvim-tree.lua",
     dependencies = { "kyazdani42/nvim-web-devicons" },
@@ -237,10 +261,12 @@ local themes = {
   "nordic", -- 10
   "github_dark_default", -- 11
   "oldworld", -- 12
-  "citruszest" -- 13
+  "citruszest", -- 13
+  "tokyonight-night", -- 14
+  "moonfly" -- 15
 }
 
-vim.cmd("colorscheme " .. themes[12])
+vim.cmd("colorscheme " .. themes[15])
 -- require("jellybeans").setup({ opts = {} })
 -- require("kanagawa").setup({ theme = "dragon" })
 -- require("vscode").setup()
@@ -288,4 +314,19 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+
+if vim.g.neovide then
+    vim.o.guifont = "JetBrainsMono NF:h10"
+    vim.g.neovide_opacity = 0.9
+    vim.g.neovide_normal_opacity = 0.9
+    vim.g.neovide_cursor_smooth_blink = true
+    vim.g.neovide_cursor_animate_in_insert_mode = true
+    vim.g.neovide_floating_blur_amount_x = 0.0
+    vim.g.neovide_floating_blur_amount_y = 0.0
+    vim.g.neovide_floating_shadow = false
+    vim.api.nvim_del_keymap("n", "<leader>t")
+end
+
+-- require("hardtime").setup()
 
