@@ -45,7 +45,7 @@ for_window [class="Pick"] floating enable
 
 exec --no-startup-id picom
 
-exec_always --no-startup-id feh --bg-fill /home/zawadzki/Pictures/wallpapers/watermark.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/watermark.png
 
 exec --no-startup-id dunst
 
@@ -74,7 +74,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- /home/zawadzki/rice/lock.sh
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/rice/lock.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -262,7 +262,6 @@ bindsym XF86AudioPlay exec playerctl -a play-pause
 bindsym XF86AudioStop exec playerctl -a stop
 
 
-# exec_always --no-startup-id polybar -c /home/zawadzki/example
 exec_always --no-startup-id ~/rice/polybar.sh
 
 bindsym $mod+period exec rofimoji
@@ -284,3 +283,5 @@ exec --no-startup-id python ~/rice/autotile.py
 exec_always ~/rice/fixes.sh
 
 bindsym $mod+Shift+x exec xkill
+
+exec ~/rice/game_listener.sh
