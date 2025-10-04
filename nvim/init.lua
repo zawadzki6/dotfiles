@@ -70,7 +70,8 @@ require("lazy").setup({
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
-	"OmniSharp/Omnisharp-vim"
+	"OmniSharp/Omnisharp-vim",
+	"xiyaowong/transparent.nvim"
   },
   install = { colorscheme = { "vague" } },
   checker = { enabled = true },
