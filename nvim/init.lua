@@ -70,8 +70,7 @@ require("lazy").setup({
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
-	"OmniSharp/Omnisharp-vim",
-	"xiyaowong/transparent.nvim"
+	"OmniSharp/Omnisharp-vim"
   },
   install = { colorscheme = { "vague" } },
   checker = { enabled = true },
@@ -81,13 +80,10 @@ require("nvim-web-devicons").setup()
 require("lualine").setup({ options = { theme = auto, globalstatus = true } })
 require("bufferline").setup()
 require("nvim-tree").setup({ view = { width = 30, side = "left" } })
-require("presence").setup({ enable_line_number = false, main_image = "file" })
-require("nvim-autopairs").setup()
-require("mason").setup()
-require("nordic").load()
-require("oldworld").setup()
-require("vague").setup()
-require("tokyonight").setup()
+require("presence").setup({ enable_line_number = true, show_time = false })
+
+vim.keymap.set('n', "<leader>f", ":NvimTreeToggle<CR>")
+
 require("nvim-treesitter.configs").setup {
     ensure_installed = { "c", "cpp", "c_sharp", "yaml", "python", "markdown" },
     sync_install = false,
@@ -95,18 +91,14 @@ require("nvim-treesitter.configs").setup {
     highlight = { enable = true },
     additional_vim_regex_highlighting = false
 }
-local cmp = require("cmp")
-cmp.setup({
-  snippet = { expand = function(args) require("luasnip").lsp_expand(args.body) end },
-  mapping = {
-    ["<C-n>"] = cmp.mapping.select_next_item(),
-    ["<C-p>"] = cmp.mapping.select_prev_item(),
-    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-  },
-  sources = { { name = "nvim_lsp" }, { name = "buffer" }, { name = "path" } },
-})
 
-vim.keymap.set('n', "<leader>f", ":NvimTreeToggle<CR>")
+require("nordic").load()
+require("oldworld").setup()
+require("vague").setup()
+require("tokyonight").setup()
+
+vim.cmd("colorscheme vague")
+
 vim.keymap.set('n', '<leader>g', function() require("trouble").open("diagnostics", { workspace = true }) end)
 
 vim.lsp.config('*', {
@@ -131,5 +123,18 @@ vim.lsp.config("omnisharp", {
 vim.lsp.enable("clangd")
 vim.lsp.enable("omnisharp")
 
-vim.cmd("colorscheme vague")
+
+local cmp = require("cmp")
+cmp.setup({
+  snippet = { expand = function(args) require("luasnip").lsp_expand(args.body) end },
+  mapping = {
+    ["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = { { name = "nvim_lsp" }, { name = "buffer" }, { name = "path" } },
+})
+
+require("nvim-autopairs").setup()
+require("mason").setup()
 
