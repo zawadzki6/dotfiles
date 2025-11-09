@@ -1,0 +1,46 @@
+[window]
+opacity = 1
+padding.x = 2
+padding.y = 2
+
+
+[font]
+normal.family = "IntOne Mono NF"
+bold.family = "IntOne Mono NF"
+italic.family = "IntOne Mono NF"
+bold_italic.family = "IntOne Mono NF"
+size = 10.0
+
+[colors.primary]
+foreground = "#CDCDCD"
+background = "#0B0B0B"
+
+[colors.normal]
+
+black = "#252530"
+red = "#D8647E"
+green = "#7FA563"
+yellow = "#F3BE7C"
+blue = "#6E94B2"
+magenta = "#BB9DBD"
+cyan = "#AEAED1"
+white = "#CDCDCD"
+
+[colors.bright]
+black = "#606079"
+red = "#E08398"
+green = "#99B782"
+yellow = "#F5CB96"
+blue = "#8BA9C1"
+magenta = "#C9B1CA"
+cyan = "#BEBEDA"
+white = "#CDCDCD"
+
+[cursor]
+style.shape = "Block"
+style.blinking = "On"
+blink_interval = 500
+blink_timeout = 0
+
+[mouse]
+hide_when_typing = true
