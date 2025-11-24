@@ -39,13 +39,13 @@ exec --no-startup-id mullvad-vpn
 
 bindsym $mod+Shift+s exec "spectacle -b -r -c"
 
-bindsym $mod+Shift+c exec "pick-colour-picker --pick"
+bindsym $mod+Shift+c exec "rm -f ~/.cache/colour-picker.json; pick-colour-picker --pick"
 
 for_window [class="Pick"] floating enable
 
 exec --no-startup-id picom
 
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/watermark.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/Sky\ High.png
 
 exec --no-startup-id dunst
 
@@ -95,7 +95,8 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec terminator
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -266,8 +267,6 @@ exec_always --no-startup-id ~/rice/polybar.sh
 
 bindsym $mod+period exec rofimoji
 
-exec --no-startup-id bash ~/Documents/scripts/replace.sh
-
 exec xrandr --output DisplayPort-1 --mode 2560x1440
 
 bindsym $mod+Shift+F12 exec xrandr --output DisplayPort-1 --mode 2560x1440
@@ -285,3 +284,5 @@ exec_always ~/rice/fixes.sh
 bindsym $mod+Shift+x exec xkill
 
 exec ~/rice/game_listener.sh
+
+bindsym $mod+p exec feh --bg-fill ~/Pictures/wallpapers/TWM-Wallpapers/Asteroid.png
