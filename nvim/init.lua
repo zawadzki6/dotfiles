@@ -53,12 +53,8 @@ require("lazy").setup({
 	"nvim-lualine/lualine.nvim",
 	"akinsho/bufferline.nvim",
 	"kyazdani42/nvim-tree.lua",
-	"andweeb/presence.nvim",
 	{ "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
 	"vague2k/vague.nvim",
-	"AlexvZyl/nordic.nvim",
-	"dgox16/oldworld.nvim",
-	"folke/tokyonight.nvim",
 	"folke/trouble.nvim",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
@@ -70,17 +66,17 @@ require("lazy").setup({
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
-	"OmniSharp/Omnisharp-vim"
+	"OmniSharp/Omnisharp-vim",
+	{ "vyfor/cord.nvim", build = ":Cord update" }
   },
   install = { colorscheme = { "vague" } },
-  checker = { enabled = true },
+  checker = { enabled = false },
 }) 
 
 require("nvim-web-devicons").setup()
 require("lualine").setup({ options = { theme = auto, globalstatus = true } })
 require("bufferline").setup()
 require("nvim-tree").setup({ view = { width = 30, side = "left" } })
-require("presence").setup({ enable_line_number = true, show_time = false })
 
 vim.keymap.set('n', "<leader>f", ":NvimTreeToggle<CR>")
 
@@ -92,11 +88,7 @@ require("nvim-treesitter.configs").setup {
     additional_vim_regex_highlighting = false
 }
 
-require("nordic").load()
-require("oldworld").setup()
 require("vague").setup()
-require("tokyonight").setup()
-
 vim.cmd("colorscheme vague")
 
 vim.keymap.set('n', '<leader>g', function() require("trouble").open("diagnostics", { workspace = true }) end)
@@ -137,4 +129,22 @@ cmp.setup({
 
 require("nvim-autopairs").setup()
 require("mason").setup()
+
+require("cord").setup({
+    display = { theme = "atom", flavor = "accent" },
+    timestamp = { shared = true },
+    buttons = {{ label = 'View Repository', url = function(opts) return opts.repo_url end }},
+    workspace = { root_markers = { ".git", ".sln" }},
+    hooks = {
+	post_activity = function(opts, activity)
+	    local version = vim.version()
+	    activity.assets.small_text = string.format("Neovim %s.%s.%s", version.major, version.minor, version.patch)
+	end
+    },
+    text = {
+        editing = function(opts)
+        return string.format("Editing %s - %s:%s", opts.filename, opts.cursor_line, opts.cursor_char)
+    end
+    }
+})
 
