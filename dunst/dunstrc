@@ -1,5 +1,5 @@
 [global]
-    font = Segoe UI 10
+    font = IBM Plex Sans 10
     markup = full
     format = "<b>%s</b>\n%b"
     sort = yes

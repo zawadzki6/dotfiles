@@ -3,4 +3,6 @@
 
 //@theme "/usr/share/rofi/themes/DarkBlue.rasi"
 
+//@theme "/home/zawadzki/.config/rofi/themes/materiadark.rasi"
+
 @theme "/home/zawadzki/.config/rofi/themes/materiadark.rasi"
