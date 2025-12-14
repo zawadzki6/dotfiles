@@ -3,12 +3,9 @@ dotfiles
 ### [complementary files (ricefiles)](https://github.com/zawadzki6/ricefiles)
 
 ## Fonts used
-terminal (monospace) fonts:
 - Intel One Mono
 - Jetbrains Mono
 - Terminus
-
-System fonts:
 - [Segoe UI](https://aur.archlinux.org/packages/ttf-ms-win11-auto)
 - IBM Plex Sans
 
