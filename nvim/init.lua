@@ -76,7 +76,7 @@ require("lazy").setup({
 require("nvim-web-devicons").setup()
 require("lualine").setup({ options = { theme = auto, globalstatus = true } })
 require("bufferline").setup()
-require("nvim-tree").setup({ view = { width = 30, side = "left" } })
+require("nvim-tree").setup({ view = { width = 30, side = "right" } })
 
 vim.keymap.set('n', "<leader>f", ":NvimTreeToggle<CR>")
 
