@@ -33,6 +33,15 @@ vim.o.termguicolors = true
 vim.cmd("filetype plugin indent on")
 vim.cmd("syntax on")
 
+
+-- .h should always be used with C, not C++
+-- use .hpp instead. fuck you
+vim.filetype.add {
+    pattern = {
+	["*.h"] = "c"
+    }
+}
+
 vim.keymap.set('n', "<leader>bg", ":%bd|e#<CR>")
 vim.keymap.set('n', "<leader>n", ":enew<CR>")
 vim.keymap.set('n', "<leader>bn", ":bnext<CR>")

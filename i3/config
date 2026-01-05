@@ -25,45 +25,59 @@ client.background       #121212
 
 exec_always setxkbmap pl
 
-bindsym Control+Mod1+Delete exec ~/rice/power.sh
 
-bindsym $mod+d exec "rofi -show drun -show-icons -theme ~/rice/rofi.rasi"
+# exec --no-startup-id export XCURSOR_THEME=Bibata
+# exec --no-startup-id export XCURSOR_SIZE=20
+# exec --no-startup-id xsetroot -Bibata left_ptr
 
-exec --no-startup-id export XCURSOR_THEME=Bibata
-exec --no-startup-id export XCURSOR_SIZE=20
-# exec --no-startup-id env QT_STYLE_OVERRIDE=qt5ct GTK_THEME=Materia-Dark
-
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/self-made/fsf.jpg
+exec --no-startup-id picom
+exec --no-startup-id dunst
 exec --no-startup-id diodon
 exec --no-startup-id corectrl
-exec --no-startup-id mullvad-vpn
+# exec --no-startup-id mullvad-vpn
 
 bindsym $mod+Shift+s exec "spectacle -b -r -c"
-
 bindsym $mod+Shift+c exec "rm -f ~/.cache/colour-picker.json; pick-colour-picker --pick"
+bindsym $mod+Shift+x exec xkill
+bindsym Control+Mod1+Delete exec ~/rice/power.sh
+bindsym $mod+d exec "rofi -show drun -show-icons"
+bindsym $mod+period exec rofimoji
+bindsym $mod+Shift+F12 exec xrandr --output DisplayPort-1 --mode 2560x1440
+bindsym $mod+p exec feh --bg-fill ~/Pictures/wallpapers/TWM-Wallpapers/Navigate.png
+bindsym $mod+shift+v exec /usr/bin/diodon
+
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send "Volume: Increased"
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send "Volume: Decreased"
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send "Volume: Mute toggled"
+
+bindsym XF86AudioPrev exec playerctl -a previous
+bindsym XF86AudioNext exec playerctl -a next
+bindsym XF86AudioPlay exec playerctl -a play-pause
+bindsym XF86AudioStop exec playerctl -a stop
+
+exec_always --no-startup-id ~/rice/polybar.sh
+exec xrandr --output DisplayPort-1 --mode 2560x1440
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id python ~/rice/autotile.py
+exec_always ~/rice/fixes.sh
+exec ~/rice/game_listener.sh
 
 for_window [class="Pick"] floating enable
 
-exec --no-startup-id picom
+gaps inner 12
+gaps outer 6
 
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/Sky\ High.png
+smart_gaps off
+smart_borders on
 
-exec --no-startup-id dunst
+for_window [class=".*"] border pixel 2
 
-exec --no-startup-id xsetroot -Bibata left_ptr
-
-
-# Volume up
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send "Volume: Increased"
-
-# Volume down
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send "Volume: Decreased"
-
-# Mute toggle
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send "Volume: Mute toggled"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Segoe UI 10
+font pango:Open Sans 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -200,7 +214,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws0
 # bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
+
 bindsym $mod+Shift+e exec ~/rice/lock.sh
 
 # resize window (you can also use the mouse for that)
@@ -247,42 +261,6 @@ bindsym $mod+r mode "resize"
 #         status_command i3blocks
 # }
 
-# Enable window gaps
-# gaps inner 8
-# gaps outer -6
-gaps inner 12
-gaps outer 6
-
-# smart_gaps on
-smart_borders on
 
 
-bindsym XF86AudioPrev exec playerctl -a previous
-bindsym XF86AudioNext exec playerctl -a next
-bindsym XF86AudioPlay exec playerctl -a play-pause
-bindsym XF86AudioStop exec playerctl -a stop
 
-
-exec_always --no-startup-id ~/rice/polybar.sh
-
-bindsym $mod+period exec rofimoji
-
-exec xrandr --output DisplayPort-1 --mode 2560x1440
-
-bindsym $mod+Shift+F12 exec xrandr --output DisplayPort-1 --mode 2560x1440
-
-exec xscreensaver --no-splash
-
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-for_window [class=".*"] border pixel 1
-
-exec --no-startup-id python ~/rice/autotile.py
-
-exec_always ~/rice/fixes.sh
-
-bindsym $mod+Shift+x exec xkill
-
-exec ~/rice/game_listener.sh
-
-bindsym $mod+p exec feh --bg-fill ~/Pictures/wallpapers/TWM-Wallpapers/Asteroid.png
